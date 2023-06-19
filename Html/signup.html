@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>Sign up page</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    table {
+      margin-top: 30px;
+      background-color: #fff;
+      border-radius: 6px;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: none;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <body align="center">
+    <h1>CREATE YOUR ACCOUNT</h1>
+    <table cellspacing="2" align="center" cellpadding="8" border="0">
+      <tr>
+        <td>NAME</td>
+        <td><input type="text" placeholder="Enter your name" id="n1" /></td>
+      </tr>
+      <tr>
+        <td>EMAIL</td>
+        <td><input type="text" placeholder="Enter your email id" id="e1" /></td>
+      </tr>
+      <tr>
+        <td>SET PASSWORD</td>
+        <td>
+          <input type="password" placeholder="Set your password" id="p1" />
+        </td>
+      </tr>
+      <tr>
+        <td>CONFIRM PASSWORD</td>
+        <td>
+          <input type="password" placeholder="Confirm your password" id="p2" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Create" onclick="create_account()" />
+        </td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      function create_account() {
+        var n = document.getElementById("n1").value;
+        var e = document.getElementById("e1").value;
+        var p = document.getElementById("p1").value;
+        var cp = document.getElementById("p2").value;
+
+        var letter = /^[A-Za-z\s]+$/;
+        var email_val = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        if (n == "" || e == "" || p == "" || cp == "") {
+          alert("Enter details correctly");
+        } else if (!letter.test(n)) {
+          alert("Name is incorrect, it must contain alphabet characters only");
+        } else if (!email_val.test(e)) {
+          alert("Invalid email format");
+        } else if (p != cp) {
+          alert("Password does not match");
+        } else if (document.getElementById("p1").value.length > 12) {
+          alert("password max length is 12.");
+        } else if (document.getElementById("p1").value.length < 6) {
+          alert("Password minimum length is 6.");
+        } else {
+          // Account creation logic here
+          alert("Account created successfully!");
+        }
+      }
+    </script>
+  </body>
+</html>

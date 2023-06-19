@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="300"
+      height="150"
+      style="border: 1px solid rgb(131, 131, 131)"
+    ></canvas>
+    <script>
+      const c = document.getElementById("myCanvas");
+      const ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(140, 75, 70, 0, 2 * Math.PI);
+      ctx.stroke();
+    </script>
+  </body>
+</html>
